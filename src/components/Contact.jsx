@@ -1,0 +1,153 @@
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { FiSend, FiCheck, FiAlertCircle, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { personalInfo } from '../utils/placeholderData';
+import './Contact.css';
+
+export default function Contact() {
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle');
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const btnRef = useRef(null);
+
+  const handleChange = (e) => {
+    setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setStatus('success');
+    setFormState({ name: '', email: '', message: '' });
+    setTimeout(() => setStatus('idle'), 3000);
+  };
+
+  const contactInfo = [
+    { icon: FiMail, label: 'Email', value: personalInfo.social.email },
+    { icon: FiMapPin, label: 'Location', value: 'San Francisco, CA' },
+    { icon: FiPhone, label: 'Phone', value: '+1 (555) 123-4567' }
+  ];
+
+  return (
+    <section id="contact" className="contact section">
+      <div className="container">
+        <motion.div
+          ref={ref}
+          className="section-header"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="section-divider" />
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="section-subtitle">
+            Have a project in mind? Let's build something amazing together
+          </p>
+        </motion.div>
+
+        <div className="contact__grid">
+          <motion.div
+            className="contact__info"
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="contact__info-title">Contact Information</h3>
+            <p className="contact__info-text">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div className="contact__info-list">
+              {contactInfo.map((item, i) => (
+                <div key={i} className="contact__info-item">
+                  <div className="contact__info-icon">
+                    <item.icon size={18} />
+                  </div>
+                  <div>
+                    <span className="contact__info-label">{item.label}</span>
+                    <span className="contact__info-value">{item.value}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.form
+            className="contact__form glass-card"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="contact__form-group">
+              <div className="contact__field">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="contact__input"
+                  placeholder=" "
+                  value={formState.name}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="name" className="contact__label">Your Name</label>
+              </div>
+              <div className="contact__field">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="contact__input"
+                  placeholder=" "
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="email" className="contact__label">Your Email</label>
+              </div>
+            </div>
+
+            <div className="contact__field">
+              <textarea
+                name="message"
+                id="message"
+                className="contact__input contact__textarea"
+                placeholder=" "
+                rows={5}
+                value={formState.message}
+                onChange={handleChange}
+                required
+              />
+              <label htmlFor="message" className="contact__label">Your Message</label>
+            </div>
+
+            <button
+              type="submit"
+              className={`contact__submit btn-primary ${status === 'sending' ? 'contact__submit--sending' : ''}`}
+              ref={btnRef}
+              disabled={status === 'sending'}
+            >
+              {status === 'idle' && (<>Send Message<FiSend size={16} /></>)}
+              {status === 'sending' && (<>Sending...<span className="contact__spinner" /></>)}
+              {status === 'success' && (<>Message Sent!<FiCheck size={16} /></>)}
+              {status === 'error' && (<>Something went wrong<FiAlertCircle size={16} /></>)}
+            </button>
+
+            {status === 'success' && (
+              <motion.div
+                className="contact__success"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <FiCheck size={18} />
+                Thanks for reaching out! I'll get back to you soon.
+              </motion.div>
+            )}
+          </motion.form>
+        </div>
+      </div>
+    </section>
+  );
+}
