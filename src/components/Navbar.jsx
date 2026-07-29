@@ -47,7 +47,7 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container container">
         <a className="navbar__logo" href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-          <span className="navbar__logo-text">Portfolio</span>
+          <span className="navbar__logo-text">Kevin</span>
           <span className="navbar__logo-dot">.</span>
         </a>
 

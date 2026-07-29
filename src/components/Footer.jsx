@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="footer__content">
           <div className="footer__brand">
             <button className="footer__logo" onClick={scrollToTop}>
-              Portfolio<span className="footer__logo-dot">.</span>
+              Kevin<span className="footer__logo-dot">.</span>
             </button>
             <p className="footer__tagline">
               Building digital experiences that make a difference.

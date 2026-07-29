@@ -8,10 +8,10 @@ export const personalInfo = {
   avatar: "/KEV.jpg",
   resume: "#",
   social: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/Abcdefg2005",
+    linkedin: "https://linkedin.com/in/kevin-logatiman",
     twitter: "https://twitter.com",
-    email: "kevin@email.com"
+    email: "kevinlogatiman4@gmail.com"
   }
 }
 
@@ -39,77 +39,75 @@ export const timelineData = [
 ]
 
 export const skillsData = [
-  { name: "React", level: 95, category: "frontend", icon: "⚛️" },
-  { name: "JavaScript", level: 92, category: "frontend", icon: "📜" },
-  { name: "TypeScript", level: 85, category: "frontend", icon: "📘" },
-  { name: "HTML/CSS", level: 95, category: "frontend", icon: "🎨" },
-  { name: "Vue.js", level: 75, category: "frontend", icon: "💚" },
-  { name: "Node.js", level: 88, category: "backend", icon: "🟢" },
-  { name: "Python", level: 80, category: "backend", icon: "🐍" },
-  { name: "PostgreSQL", level: 78, category: "backend", icon: "🐘" },
-  { name: "MongoDB", level: 72, category: "backend", icon: "🍃" },
-  { name: "GraphQL", level: 70, category: "backend", icon: "◈" },
-  { name: "Figma", level: 82, category: "design", icon: "🖌️" },
-  { name: "UI/UX", level: 78, category: "design", icon: "✨" },
-  { name: "Git", level: 90, category: "tools", icon: "🔀" },
-  { name: "Docker", level: 75, category: "tools", icon: "🐳" },
-  { name: "AWS", level: 72, category: "tools", icon: "☁️" },
-  { name: "Linux", level: 80, category: "tools", icon: "🐧" }
+  { name: "React", level: 80, category: "frontend", icon: "⚛️" },
+  { name: "JavaScript", level: 85, category: "frontend", icon: "📜" },
+  { name: "HTML/CSS", level: 90, category: "frontend", icon: "🎨" },
+  { name: "Tailwind CSS", level: 75, category: "frontend", icon: "💨" },
+  { name: "Node.js", level: 70, category: "backend", icon: "🟢" },
+  { name: "Python", level: 72, category: "backend", icon: "🐍" },
+  { name: "MySQL", level: 75, category: "backend", icon: "🐬" },
+  { name: "PHP", level: 68, category: "backend", icon: "🐘" },
+  { name: "Figma", level: 70, category: "design", icon: "🖌️" },
+  { name: "UI/UX Design", level: 65, category: "design", icon: "✨" },
+  { name: "Git & GitHub", level: 80, category: "tools", icon: "🔀" },
+  { name: "VS Code", level: 90, category: "tools", icon: "💻" },
+  { name: "Linux", level: 65, category: "tools", icon: "🐧" },
+  { name: "Vite", level: 75, category: "tools", icon: "⚡" }
 ]
 
 export const projectsData = [
   {
     id: 1,
-    title: "CloudDash",
-    description: "Real-time analytics dashboard with interactive charts, user segmentation, and AI-powered insights for modern SaaS businesses.",
-    tech: ["React", "D3.js", "Node.js", "WebSocket", "Redis"],
+    title: "Portfolio Website",
+    description: "A personal portfolio website built with React and Vite, featuring smooth animations, particle background, and a fully responsive design.",
+    tech: ["React", "Vite", "Framer Motion", "CSS"],
     color: "#6C63FF",
-    github: "#",
+    github: "https://github.com/Abcdefg2005/portfolio",
     live: "#"
   },
   {
     id: 2,
-    title: "EcoTrack",
-    description: "Sustainability tracking app that helps users monitor carbon footprint, discover eco-friendly alternatives, and earn rewards for green choices.",
-    tech: ["React Native", "Firebase", "TensorFlow Lite", "Stripe"],
+    title: "Student Information System",
+    description: "A web-based student information system for managing student records, grades, and enrollment built as a school project.",
+    tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
     color: "#00C853",
-    github: "#",
+    github: "https://github.com/Abcdefg2005",
     live: "#"
   },
   {
     id: 3,
-    title: "SynthWave",
-    description: "A web-based music synthesis platform with real-time waveform visualization, MIDI support, and collaborative jam sessions.",
-    tech: ["Web Audio API", "React", "WebRTC", "Tone.js"],
+    title: "Task Manager App",
+    description: "A simple and clean task management app with CRUD operations, local storage persistence, and a responsive UI.",
+    tech: ["React", "JavaScript", "CSS", "LocalStorage"],
     color: "#FF6D00",
-    github: "#",
+    github: "https://github.com/Abcdefg2005",
     live: "#"
   },
   {
     id: 4,
-    title: "DevForge",
-    description: "AI-assisted code review platform that provides intelligent suggestions, security vulnerability scanning, and automated refactoring.",
-    tech: ["TypeScript", "Next.js", "OpenAI", "Prisma", "PostgreSQL"],
+    title: "Weather App",
+    description: "A weather forecast application that fetches real-time data from OpenWeatherMap API and displays current conditions and 5-day forecast.",
+    tech: ["JavaScript", "REST API", "HTML/CSS"],
     color: "#2979FF",
-    github: "#",
+    github: "https://github.com/Abcdefg2005",
     live: "#"
   },
   {
     id: 5,
-    title: "PixelCraft",
-    description: "Browser-based collaborative pixel art editor with version history, layers, and real-time multiplayer support.",
-    tech: ["Canvas API", "React", "Socket.io", "S3"],
+    title: "E-Commerce UI",
+    description: "A front-end e-commerce product listing page with filtering, cart functionality, and a clean modern design.",
+    tech: ["React", "CSS", "JavaScript"],
     color: "#D500F9",
-    github: "#",
+    github: "https://github.com/Abcdefg2005",
     live: "#"
   },
   {
     id: 6,
-    title: "FlowState",
-    description: "Productivity suite combining Pomodoro timer, task management, focus music, and analytics to optimize deep work sessions.",
-    tech: ["React", "Electron", "SQLite", "Chart.js"],
+    title: "Quiz App",
+    description: "An interactive quiz application with multiple categories, score tracking, and a timer built for a school project.",
+    tech: ["JavaScript", "HTML", "CSS"],
     color: "#00BCD4",
-    github: "#",
+    github: "https://github.com/Abcdefg2005",
     live: "#"
   }
 ]

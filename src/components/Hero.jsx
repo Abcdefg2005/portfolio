@@ -6,10 +6,10 @@ import { personalInfo } from '../utils/placeholderData';
 import './Hero.css';
 
 const roles = [
-  'Full-Stack Developer',
+  'BSIT Student',
+  'Front-End Developer',
   'UI/UX Enthusiast',
-  'Open Source Contributor',
-  'Creative Technologist'
+  'Aspiring Full-Stack Dev'
 ];
 
 export default function Hero() {

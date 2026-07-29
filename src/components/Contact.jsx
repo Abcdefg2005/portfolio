@@ -25,9 +25,9 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: FiMail, label: 'Email', value: personalInfo.social.email },
-    { icon: FiMapPin, label: 'Location', value: 'San Francisco, CA' },
-    { icon: FiPhone, label: 'Phone', value: '+1 (555) 123-4567' }
+    { icon: FiMail, label: 'Email', value: 'kevinlogatiman4@gmail.com' },
+    { icon: FiMapPin, label: 'Location', value: 'Bayawan City, Negros Oriental, PH' },
+    { icon: FiPhone, label: 'Phone', value: '+63 (XXX) XXX-XXXX' }
   ];
 
   return (
