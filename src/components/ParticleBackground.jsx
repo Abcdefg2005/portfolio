@@ -4,16 +4,23 @@ import { loadSlim } from '@tsparticles/slim';
 
 const options = {
   background: { color: { value: 'transparent' } },
-  fpsLimit: 60,
+  fpsLimit: 30,
   interactivity: {
-    events: { onHover: { enable: false }, resize: true }
+    events: { onHover: { enable: false }, resize: { enable: true } }
   },
   particles: {
     color: { value: ['#00d4ff', '#7c3aed', '#00c853', '#ff6d00'] },
-    links: { color: '#00d4ff', distance: 150, enable: true, opacity: 0.15, width: 1 },
-    move: { direction: 'none', enable: true, outModes: { default: 'bounce' }, random: true, speed: 1, straight: false },
-    number: { density: { enable: true, area: 800 }, value: 40 },
-    opacity: { value: 0.5 },
+    links: { enable: false },
+    move: {
+      direction: 'none',
+      enable: true,
+      outModes: { default: 'out' },
+      random: false,
+      speed: 0.4,
+      straight: false
+    },
+    number: { density: { enable: true, area: 1200 }, value: 15 },
+    opacity: { value: { min: 0.2, max: 0.5 } },
     shape: { type: 'circle' },
     size: { value: { min: 1, max: 3 } }
   },

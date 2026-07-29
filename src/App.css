@@ -31,13 +31,16 @@
   margin: 0 auto;
 }
 
+/* 
+ * Glass card — removed backdrop-filter from the base style. 
+ * backdrop-filter: blur() on many cards simultaneously is extremely GPU heavy 
+ * and causes lag on laptops. The solid bg-glass color already looks great.
+ */
 .glass-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
+  transition: background var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .glass-card:hover {
@@ -56,7 +59,7 @@
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
@@ -78,6 +81,14 @@
   margin: 0 auto 20px;
 }
 
+/* ===== Responsive Breakpoints ===== */
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px 0;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px 0;
@@ -86,10 +97,39 @@
   .section-header {
     margin-bottom: 40px;
   }
+
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
+  :root {
+    --section-padding: 48px 0;
+  }
+
   .container {
     padding: 0 16px;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-divider {
+    width: 60px;
+    margin-bottom: 14px;
+  }
+
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 12px;
   }
 }

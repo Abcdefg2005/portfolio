@@ -97,3 +97,8 @@ textarea {
 ::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-secondary); }
 ::selection { background: var(--accent-primary); color: var(--bg-primary); }
+
+/* GPU performance: promote only the navbar to its own layer */
+.navbar {
+  will-change: transform;
+}

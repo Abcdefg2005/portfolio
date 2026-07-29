@@ -1,22 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skillsData, filterCategories } from '../utils/placeholderData';
 import './Skills.css';
 
-const SkillBar = ({ skill, index }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2
-  });
-
+const SkillBar = ({ skill, index, isVisible }) => {
   return (
-    <motion.div
-      ref={ref}
-      className="skill-bar"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+    <div
+      className={`skill-bar ${isVisible ? 'skill-bar--visible' : ''}`}
+      style={{ transitionDelay: `${index * 50}ms` }}
     >
       <div className="skill-bar__header">
         <span className="skill-bar__icon">{skill.icon}</span>
@@ -24,20 +16,22 @@ const SkillBar = ({ skill, index }) => {
         <span className="skill-bar__level">{skill.level}%</span>
       </div>
       <div className="skill-bar__track">
-        <motion.div
+        <div
           className="skill-bar__fill"
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${skill.level}%` } : {}}
-          transition={{ duration: 1, delay: index * 0.05, ease: 'easeOut' }}
+          style={{
+            width: isVisible ? `${skill.level}%` : '0%',
+            transitionDelay: `${index * 50}ms`
+          }}
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 export default function Skills() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [gridRef, gridInView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   const filteredSkills = activeFilter === 'all'
     ? skillsData
@@ -72,15 +66,11 @@ export default function Skills() {
           ))}
         </div>
 
-        <motion.div
-          className="skills__grid"
-          layout
-          transition={{ duration: 0.3 }}
-        >
+        <div ref={gridRef} className="skills__grid">
           {filteredSkills.map((skill, index) => (
-            <SkillBar key={skill.name} skill={skill} index={index} />
+            <SkillBar key={skill.name} skill={skill} index={index} isVisible={gridInView} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

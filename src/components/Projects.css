@@ -47,7 +47,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
-  transition: all var(--transition-normal);
+  transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .project-card__link:hover {
@@ -89,11 +89,39 @@
 @media (max-width: 1024px) {
   .projects__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
   .projects__grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card__inner {
+    padding: 20px;
+  }
+
+  .project-card__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .project-card__title {
+    font-size: 1.1rem;
+  }
+
+  .project-card__description {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+
+  .project-card__tech-tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
   }
 }
