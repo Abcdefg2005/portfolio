@@ -1,18 +1,19 @@
 # Deploying to GitHub Pages
 
-The site builds with Vite and deploys via GitHub Actions on every push to `main`.
+The site builds with Vite and deploys via GitHub Actions on every push to `main`. The workflow pushes the built `dist/` folder to the `gh-pages` branch.
 
 ## One-time setup (required)
 
 ### 1. Enable GitHub Pages
 
 1. Open [Settings → Pages](https://github.com/Abcdefg2005/portfolio/settings/pages)
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Save — no branch or folder selection is needed when using Actions
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**
+3. Set **Branch** to `gh-pages` and folder to **`/ (root)`**
+4. Save
 
-Without this step, the deploy job fails with:
+The `gh-pages` branch is created automatically on the first successful workflow run. If you enable Pages before the first deploy, re-run the workflow or push a commit after the branch exists.
 
-> Failed to create deployment (status: 404) … Ensure GitHub Pages has been enabled
+Without this step, the workflow may succeed but the site stays unavailable at the live URL.
 
 ### 2. Add the Web3Forms secret (for the contact form)
 
@@ -28,7 +29,7 @@ The site will deploy without this secret, but the contact form will show a confi
 
 After enabling Pages, either:
 
-- Re-run the failed workflow from the [Actions tab](https://github.com/Abcdefg2005/portfolio/actions), or
+- Re-run the workflow from the [Actions tab](https://github.com/Abcdefg2005/portfolio/actions), or
 - Push any commit to `main`
 
 ## Live URL
