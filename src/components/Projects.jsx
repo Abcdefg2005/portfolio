@@ -36,6 +36,9 @@ const ProjectCard = ({ project, index }) => {
         onMouseLeave={handleMouseLeave}
         style={{ borderTop: '3px solid ' + project.color }}
       >
+        {index === 0 && (
+          <div className="project-card__featured-badge">⭐ Featured</div>
+        )}
         <div className="project-card__header">
           <div className="project-card__icon" style={{ background: project.color + '20', color: project.color }}>
             {project.title.charAt(0)}

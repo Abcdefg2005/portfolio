@@ -1,9 +1,47 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background blobs */
+.contact::before,
+.contact::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+  top: -100px;
+  right: -150px;
+}
+
+.contact::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  bottom: -100px;
+  left: -120px;
+}
+
+.contact .container {
+  position: relative;
+  z-index: 1;
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 48px;
   align-items: start;
 }
+
+
 
 .contact__info-title {
   font-size: 1.5rem;

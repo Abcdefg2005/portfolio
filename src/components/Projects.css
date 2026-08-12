@@ -12,7 +12,31 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform-style: preserve-3d;
   cursor: default;
+  position: relative;
+  overflow: hidden;
 }
+
+.project-card__featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1a00;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(251, 191, 36, 0.35);
+  animation: badge-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes badge-shimmer {
+  0%, 100% { box-shadow: 0 2px 12px rgba(251, 191, 36, 0.35); }
+  50% { box-shadow: 0 2px 20px rgba(251, 191, 36, 0.6); }
+}
+
+
 
 .project-card__header {
   display: flex;

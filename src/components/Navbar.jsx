@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import './Navbar.css';
 
 const navLinks = [
@@ -7,10 +7,12 @@ const navLinks = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'testimonials', label: 'Reviews' },
+  { id: 'blog', label: 'Blog' },
   { id: 'contact', label: 'Contact' }
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [activeSection, setActiveSection] = useState('hero');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,9 +46,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="navbar__container container">
-        <a className="navbar__logo" href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
+        <a
+          className="navbar__logo"
+          href="#hero"
+          onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
+          aria-label="Go to top"
+        >
           <span className="navbar__logo-text">Kevin</span>
           <span className="navbar__logo-dot">.</span>
         </a>
@@ -64,17 +71,39 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button
-          className="navbar__toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+        <div className="navbar__actions">
+          {/* Dark/Light toggle */}
+          <button
+            className="navbar__theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+          </button>
+
+          {/* Hire Me CTA */}
+          <button
+            className="navbar__hire-btn"
+            onClick={() => scrollToSection('contact')}
+            aria-label="Go to contact section"
+          >
+            Hire Me
+          </button>
+
+          {/* Mobile hamburger */}
+          <button
+            className="navbar__toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </div>
 
       {isMenuOpen && <div className="navbar__overlay" onClick={() => setIsMenuOpen(false)} />}
     </nav>
   );
 }
-

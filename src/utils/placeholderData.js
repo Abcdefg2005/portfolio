@@ -120,3 +120,67 @@ export const filterCategories = [
   { id: "tools", label: "Tools" }
 ]
 
+export const testimonialsData = [
+  {
+    id: 1,
+    name: "Ma. Criselda P. Olipas",
+    role: "IT Instructor",
+    institution: "NORSU-BSC",
+    quote: "Kevin is one of the most dedicated students I've had the pleasure of teaching. His ability to quickly grasp complex programming concepts and apply them creatively in projects is truly impressive.",
+    avatar: "👩‍🏫",
+    rating: 5
+  },
+  {
+    id: 2,
+    name: "John Michael Santos",
+    role: "Classmate & Peer",
+    institution: "NORSU-BSC BSIT",
+    quote: "Working on group projects with Kevin is always a great experience. He brings creative solutions to the table and writes clean, well-structured code. A dependable team player.",
+    avatar: "👨‍💻",
+    rating: 5
+  },
+  {
+    id: 3,
+    name: "Ana Marie Reyes",
+    role: "Project Partner",
+    institution: "NORSU-BSC BSIT",
+    quote: "Kevin designed the UI for our capstone project and it blew everyone away. He has a great eye for design and knows how to make interfaces feel intuitive and polished.",
+    avatar: "👩‍💻",
+    rating: 5
+  }
+]
+
+export const blogData = [
+  {
+    id: 1,
+    title: "How I Built My First React App from Scratch",
+    excerpt: "A step-by-step walkthrough of building a task manager application with React hooks, local storage, and a clean component architecture for beginners.",
+    tags: ["React", "JavaScript", "Beginner"],
+    readTime: "8 min read",
+    date: "July 2025",
+    link: "#",
+    emoji: "⚛️"
+  },
+  {
+    id: 2,
+    title: "CSS Glassmorphism: A Practical Guide",
+    excerpt: "Explore the glassmorphism UI trend — from backdrop-filter and rgba backgrounds to performance tips that keep animations buttery smooth.",
+    tags: ["CSS", "UI/UX", "Design"],
+    readTime: "6 min read",
+    date: "June 2025",
+    link: "#",
+    emoji: "🪟"
+  },
+  {
+    id: 3,
+    title: "Git & GitHub for IT Students: Essential Workflow",
+    excerpt: "Everything you need to know about Git branching, pull requests, and collaborating on code as a student — without the confusing jargon.",
+    tags: ["Git", "GitHub", "Tools"],
+    readTime: "5 min read",
+    date: "May 2025",
+    link: "#",
+    emoji: "🔀"
+  }
+]
+
+
