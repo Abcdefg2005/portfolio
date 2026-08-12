@@ -3,31 +3,62 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiSend, FiCheck, FiAlertCircle, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { personalInfo } from '../utils/placeholderData';
+import { validateContactForm, submitContactForm } from '../utils/contactForm';
 import './Contact.css';
 
+const INITIAL_FORM = { name: '', email: '', message: '', botcheck: '' };
+
 export default function Contact() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [formState, setFormState] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('idle');
+  const [feedback, setFeedback] = useState('');
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const btnRef = useRef(null);
 
   const handleChange = (e) => {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    if (status === 'error') {
+      setStatus('idle');
+      setFeedback('');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFeedback('');
+
+    const validation = validateContactForm(formState);
+    if (!validation.valid) {
+      setStatus('error');
+      setFeedback(validation.error);
+      setTimeout(() => {
+        setStatus('idle');
+        setFeedback('');
+      }, 5000);
+      return;
+    }
+
     setStatus('sending');
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setStatus('success');
-    setFormState({ name: '', email: '', message: '' });
-    setTimeout(() => setStatus('idle'), 3000);
+
+    try {
+      await submitContactForm(validation.data);
+      setStatus('success');
+      setFormState(INITIAL_FORM);
+      setTimeout(() => setStatus('idle'), 3000);
+    } catch (err) {
+      setStatus('error');
+      setFeedback(err.message || 'Something went wrong. Please try again.');
+      setTimeout(() => {
+        setStatus('idle');
+        setFeedback('');
+      }, 5000);
+    }
   };
 
   const contactInfo = [
-    { icon: FiMail, label: 'Email', value: 'kevinlogatiman4@gmail.com' },
-    { icon: FiMapPin, label: 'Location', value: 'Bayawan City, Negros Oriental, PH' },
-    { icon: FiPhone, label: 'Phone', value: '+63 (XXX) XXX-XXXX' }
+    { icon: FiMail, label: 'Email', value: personalInfo.social.email },
+    { icon: FiMapPin, label: 'Location', value: personalInfo.location },
+    { icon: FiPhone, label: 'Phone', value: personalInfo.phone },
   ];
 
   return (
@@ -76,10 +107,23 @@ export default function Contact() {
           <motion.form
             className="contact__form glass-card"
             onSubmit={handleSubmit}
+            noValidate
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            {/* Honeypot — hidden from users, traps bots */}
+            <input
+              type="text"
+              name="botcheck"
+              className="contact__honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formState.botcheck}
+              onChange={handleChange}
+              aria-hidden="true"
+            />
+
             <div className="contact__form-group">
               <div className="contact__field">
                 <input
@@ -90,6 +134,7 @@ export default function Contact() {
                   placeholder=" "
                   value={formState.name}
                   onChange={handleChange}
+                  maxLength={100}
                   required
                 />
                 <label htmlFor="name" className="contact__label">Your Name</label>
@@ -103,6 +148,7 @@ export default function Contact() {
                   placeholder=" "
                   value={formState.email}
                   onChange={handleChange}
+                  maxLength={254}
                   required
                 />
                 <label htmlFor="email" className="contact__label">Your Email</label>
@@ -118,6 +164,7 @@ export default function Contact() {
                 rows={5}
                 value={formState.message}
                 onChange={handleChange}
+                maxLength={2000}
                 required
               />
               <label htmlFor="message" className="contact__label">Your Message</label>
@@ -125,7 +172,9 @@ export default function Contact() {
 
             <button
               type="submit"
-              className={`contact__submit btn-primary ${status === 'sending' ? 'contact__submit--sending' : ''}`}
+              className={`contact__submit btn-primary ${
+                status === 'sending' ? 'contact__submit--sending' : ''
+              } ${status === 'error' ? 'contact__submit--error' : ''}`}
               ref={btnRef}
               disabled={status === 'sending'}
             >
@@ -137,12 +186,25 @@ export default function Contact() {
 
             {status === 'success' && (
               <motion.div
-                className="contact__success"
+                className="contact__feedback contact__feedback--success"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
+                role="status"
               >
                 <FiCheck size={18} />
                 Thanks for reaching out! I'll get back to you soon.
+              </motion.div>
+            )}
+
+            {status === 'error' && feedback && (
+              <motion.div
+                className="contact__feedback contact__feedback--error"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                role="alert"
+              >
+                <FiAlertCircle size={18} />
+                {feedback}
               </motion.div>
             )}
           </motion.form>

@@ -6,7 +6,10 @@ export const personalInfo = {
     "When I'm not studying or coding, I enjoy exploring new technologies, working on personal projects, and finding creative ways to solve real-world problems through software."
   ],
   avatar: "/KEV.jpg",
+  // Add your PDF to public/ (e.g. public/Kevin-Logatiman-Resume.pdf) and update this path
   resume: "#",
+  location: "Bayawan City, Negros Oriental, PH",
+  phone: "+63 (XXX) XXX-XXXX",
   social: {
     github: "https://github.com/Abcdefg2005",
     linkedin: "https://linkedin.com/in/kevin-logatiman",

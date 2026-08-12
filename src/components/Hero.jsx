@@ -117,9 +117,11 @@ export default function Hero() {
             View My Work
             <FiArrowDown size={18} />
           </button>
-          <a href={personalInfo.resume} className="btn-outline hero__resume" target="_blank" rel="noopener noreferrer">
-            Download CV
-          </a>
+          {personalInfo.resume !== '#' && (
+            <a href={personalInfo.resume} className="btn-outline hero__resume" target="_blank" rel="noopener noreferrer">
+              Download CV
+            </a>
+          )}
         </motion.div>
 
         <motion.div
