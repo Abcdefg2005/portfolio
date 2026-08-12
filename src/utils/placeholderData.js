@@ -47,11 +47,9 @@ export const skillsData = [
   { name: "Python", level: 72, category: "backend", icon: "🐍" },
   { name: "MySQL", level: 75, category: "backend", icon: "🐬" },
   { name: "PHP", level: 68, category: "backend", icon: "🐘" },
-  { name: "Figma", level: 70, category: "design", icon: "🖌️" },
   { name: "UI/UX Design", level: 65, category: "design", icon: "✨" },
   { name: "Git & GitHub", level: 80, category: "tools", icon: "🔀" },
   { name: "VS Code", level: 90, category: "tools", icon: "💻" },
-  { name: "Linux", level: 65, category: "tools", icon: "🐧" },
   { name: "Vite", level: 75, category: "tools", icon: "⚡" }
 ]
 
@@ -123,32 +121,35 @@ export const filterCategories = [
 export const testimonialsData = [
   {
     id: 1,
-    name: "Ma. Criselda P. Olipas",
+    name: "Secret Lang",
     role: "IT Instructor",
     institution: "NORSU-BSC",
-    quote: "Kevin is one of the most dedicated students I've had the pleasure of teaching. His ability to quickly grasp complex programming concepts and apply them creatively in projects is truly impressive.",
+    quote:
+      "Kevin is one of the most dedicated students I've had the pleasure of teaching. His ability to quickly grasp complex programming concepts and apply them creatively in projects is truly impressive.",
     avatar: "👩‍🏫",
-    rating: 5
+    rating: 5,
   },
   {
     id: 2,
-    name: "John Michael Santos",
+    name: "Secret Lang",
     role: "Classmate & Peer",
     institution: "NORSU-BSC BSIT",
-    quote: "Working on group projects with Kevin is always a great experience. He brings creative solutions to the table and writes clean, well-structured code. A dependable team player.",
+    quote:
+      "Working on group projects with Kevin is always a great experience. He brings creative solutions to the table and writes clean, well-structured code. A dependable team player.",
     avatar: "👨‍💻",
-    rating: 5
+    rating: 5,
   },
   {
     id: 3,
-    name: "Ana Marie Reyes",
+    name: "Secret Lang",
     role: "Project Partner",
     institution: "NORSU-BSC BSIT",
-    quote: "Kevin designed the UI for our capstone project and it blew everyone away. He has a great eye for design and knows how to make interfaces feel intuitive and polished.",
+    quote:
+      "Kevin designed the UI for our capstone project and it blew everyone away. He has a great eye for design and knows how to make interfaces feel intuitive and polished.",
     avatar: "👩‍💻",
-    rating: 5
-  }
-]
+    rating: 5,
+  },
+];
 
 export const blogData = [
   {
