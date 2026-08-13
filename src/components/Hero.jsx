@@ -66,6 +66,22 @@ export default function Hero() {
 
       <div className="hero__content container">
         <motion.div
+          className="hero__avatar-wrapper"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="hero__avatar-glow" />
+          <img
+            src={personalInfo.avatar}
+            alt={personalInfo.name}
+            className="hero__avatar"
+            width={160}
+            height={160}
+          />
+        </motion.div>
+
+        <motion.div
           className="hero__badge"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

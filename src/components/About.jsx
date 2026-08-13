@@ -54,7 +54,14 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="about__avatar-glow" />
-            <img src={personalInfo.avatar} alt={personalInfo.name} className="about__avatar" />
+            <img
+              src={personalInfo.avatar}
+              alt={personalInfo.name}
+              className="about__avatar"
+              width={200}
+              height={200}
+              loading="lazy"
+            />
           </motion.div>
           <motion.div
             className="about__text"
