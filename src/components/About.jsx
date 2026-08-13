@@ -48,26 +48,10 @@ export default function About() {
         </motion.div>
         <div className="about__intro">
           <motion.div
-            className="about__avatar-wrapper"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="about__avatar-glow" />
-            <img
-              src={personalInfo.avatar}
-              alt={personalInfo.name}
-              className="about__avatar"
-              width={200}
-              height={200}
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div
             className="about__text"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             {personalInfo.bio.map((paragraph, i) => (
               <p key={i} className="about__paragraph">{paragraph}</p>
