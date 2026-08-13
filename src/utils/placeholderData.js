@@ -11,7 +11,7 @@ export const personalInfo = {
   location: "Bayawan City, Negros Oriental, PH",
   phone: "+63 (XXX) XXX-XXXX",
   social: {
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     linkedin: "https://linkedin.com/in/kevin-logatiman",
     twitter: "https://twitter.com",
     email: "kevinlogatiman4@gmail.com"
@@ -63,7 +63,7 @@ export const projectsData = [
     description: "A personal portfolio website built with React and Vite, featuring smooth animations, particle background, and a fully responsive design.",
     tech: ["React", "Vite", "Framer Motion", "CSS"],
     color: "#6C63FF",
-    github: "https://github.com/Abcdefg2005/portfolio",
+    github: "https://github.com/kevinL1004/portfolio",
     live: "#"
   },
   {
@@ -72,7 +72,7 @@ export const projectsData = [
     description: "A web-based student information system for managing student records, grades, and enrollment built as a school project.",
     tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
     color: "#00C853",
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     live: "#"
   },
   {
@@ -81,7 +81,7 @@ export const projectsData = [
     description: "A simple and clean task management app with CRUD operations, local storage persistence, and a responsive UI.",
     tech: ["React", "JavaScript", "CSS", "LocalStorage"],
     color: "#FF6D00",
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     live: "#"
   },
   {
@@ -90,7 +90,7 @@ export const projectsData = [
     description: "A weather forecast application that fetches real-time data from OpenWeatherMap API and displays current conditions and 5-day forecast.",
     tech: ["JavaScript", "REST API", "HTML/CSS"],
     color: "#2979FF",
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     live: "#"
   },
   {
@@ -99,7 +99,7 @@ export const projectsData = [
     description: "A front-end e-commerce product listing page with filtering, cart functionality, and a clean modern design.",
     tech: ["React", "CSS", "JavaScript"],
     color: "#D500F9",
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     live: "#"
   },
   {
@@ -108,7 +108,7 @@ export const projectsData = [
     description: "An interactive quiz application with multiple categories, score tracking, and a timer built for a school project.",
     tech: ["JavaScript", "HTML", "CSS"],
     color: "#00BCD4",
-    github: "https://github.com/Abcdefg2005",
+    github: "https://github.com/kevinL1004",
     live: "#"
   }
 ]
