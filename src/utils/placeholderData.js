@@ -5,7 +5,7 @@ export const personalInfo = {
     "I'm Kevin, a 3rd year Bachelor of Science in Information Technology student at Negros Oriental State University — Bayawan-Santa Catalina Campus (NORSU-BSC). I'm passionate about building clean, functional web applications and constantly leveling up my skills.",
     "When I'm not studying or coding, I enjoy exploring new technologies, working on personal projects, and finding creative ways to solve real-world problems through software."
   ],
-  avatar: "/KEV.jpg",
+  avatar: `${import.meta.env.BASE_URL}KEV.png`,
   // Add your PDF to public/ (e.g. public/Kevin-Logatiman-Resume.pdf) and update this path
   resume: "#",
   location: "Bayawan City, Negros Oriental, PH",
